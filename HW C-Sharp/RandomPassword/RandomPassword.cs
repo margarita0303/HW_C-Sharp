@@ -21,6 +21,7 @@ namespace RandomPassword
             length = len;
             password = getRandomPassword();
         }
+
         private string getRandomPassword()
         {
             const string Digits = "0123456789";
@@ -30,15 +31,15 @@ namespace RandomPassword
 
             var resultPassword = new StringBuilder(length);
             var rnd = new Random();
-            
+
             int posOfUnderscore = rnd.Next(0, length);
-            
+
             int posOfFirstUpperCase = rnd.Next(0, length);
-            while(posOfFirstUpperCase == posOfUnderscore)
-                posOfFirstUpperCase = rnd.Next(0, length );
-            
+            while (posOfFirstUpperCase == posOfUnderscore)
+                posOfFirstUpperCase = rnd.Next(0, length);
+
             int posOfSecondUpperCase = rnd.Next(0, length);
-            while(posOfSecondUpperCase == posOfUnderscore || posOfSecondUpperCase == posOfFirstUpperCase)
+            while (posOfSecondUpperCase == posOfUnderscore || posOfSecondUpperCase == posOfFirstUpperCase)
                 posOfSecondUpperCase = rnd.Next(0, length);
 
             for (var i = 0; i < length; i++)
@@ -48,17 +49,19 @@ namespace RandomPassword
                     resultPassword.Append(Underscore[0]);
                     continue;
                 }
-                
+
                 if (i == posOfFirstUpperCase)
                 {
-                    var posNewSymbol = rnd.Next(0, 26);
+                    const int numberOfLettersInAlphabet = 26;
+                    var posNewSymbol = rnd.Next(0, numberOfLettersInAlphabet);
                     resultPassword.Append(UpperCase[posNewSymbol]);
                     continue;
                 }
-                
+
                 if (i == posOfSecondUpperCase)
                 {
-                    var posNewSymbol = rnd.Next(0, 26);
+                    const int numberOfLettersInAlphabet = 26;
+                    var posNewSymbol = rnd.Next(0, numberOfLettersInAlphabet);
                     resultPassword.Append(UpperCase[posNewSymbol]);
                     continue;
                 }
@@ -76,7 +79,7 @@ namespace RandomPassword
                     resultPassword.Append((Digits + LowerCase + UpperCase + Underscore)[posNewSymbol]);
                 }
             }
-            
+
             return resultPassword.ToString();
         }
     }
