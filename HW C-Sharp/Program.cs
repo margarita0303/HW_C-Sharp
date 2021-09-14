@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using HashTable;
 
 namespace HW_C_Sharp
 {
@@ -8,7 +7,9 @@ namespace HW_C_Sharp
     {
         static void Main(string[] args)
         {
-            var hashTable = new HashTable<int,string>();
+            Console.WriteLine("Testing HashTable.");
+            
+            var hashTable = new HashTable.HashTable<int,string>();
             hashTable.Insert(12, "Value1");
             
             try
@@ -43,6 +44,11 @@ namespace HW_C_Sharp
             {
                 Console.WriteLine("Key can not be found.");
             }
+            
+            Console.WriteLine("Testing RandomPassword.");
+            
+            var password = new RandomPassword.RandomPassword();
+            Console.WriteLine(password.getPassword());
         }
     }
 }
