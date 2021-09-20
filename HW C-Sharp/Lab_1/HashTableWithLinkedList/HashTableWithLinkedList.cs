@@ -15,12 +15,12 @@ namespace HashTable
         }
     }
     
-    public class HashTable<TK, TV>
+    public class HashTableWithLinkedList<TK, TV>
     {
         private int Size;
         private Dictionary<int, LinkedList<Item<TK, TV>>> _items;
 
-        public HashTable(int maxSize = 256 - 1)
+        public HashTableWithLinkedList(int maxSize = 256 - 1)
         {
             Size = maxSize;
             _items = new Dictionary<int, LinkedList<Item<TK, TV>>>(Size);

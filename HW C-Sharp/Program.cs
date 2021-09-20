@@ -9,7 +9,7 @@ namespace HW_C_Sharp
         {
             Console.WriteLine("Testing HashTable.");
             
-            var hashTable = new HashTable.HashTable<int,string>();
+            var hashTable = new HashTable.HashTableWithLinkedList<int,string>();
             hashTable.Insert(12, "Value1");
             
             try
