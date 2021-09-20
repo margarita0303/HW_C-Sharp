@@ -7,11 +7,13 @@ namespace HashTable
     {
         public TK Key;
         public TV Value;
-        
+        public bool IsFictitious;
+
         public Item(TK key, TV value)
         {
             Key = key;
             Value = value;
+            IsFictitious = false;
         }
     }
     
@@ -83,7 +85,6 @@ namespace HashTable
                     }
                 }
             }
-            
             throw new KeyNotFoundException();
         }
     }
