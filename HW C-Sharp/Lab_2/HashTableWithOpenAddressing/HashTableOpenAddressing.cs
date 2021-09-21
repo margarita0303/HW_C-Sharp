@@ -42,11 +42,9 @@ namespace HashTable
             return null;
         }
 
-
-        public void Insert(TK key, TV value)
+        private int FindFreeSpace(TK key)
         {
             var hash = GetHash(key);
-            var item = new Item<TK, TV>(key, value);
             while (true)
             {
                 if (_items[hash] == null)
@@ -60,7 +58,50 @@ namespace HashTable
                 }
                 hash = (hash + 1) % _maxSize;
             }
-            _items[hash] = item;
+            return hash;
+        }
+
+        private void Expand()
+        {
+            var tmpItems = new Item<TK, TV>[_maxSize];
+            for (var i = 0; i < _maxSize; i++)
+            {
+                tmpItems[i] = _items[i];
+            }
+            _items = new Item<TK, TV>[_maxSize * 2];
+            _maxSize *= 2;
+            
+            foreach (var item in tmpItems)
+            {
+                if (item == null)
+                {
+                    continue;
+                }
+
+                if (item.IsFictitious)
+                {
+                    continue;
+                }
+                var key = item.Key;
+                var position = FindFreeSpace(key);
+                _items[position] = item;
+            }
+        }
+        
+        // при переполнении лучше вообще всю хэштаблицу сформировать заново, так как, если ее просто расширить, 
+        // то элементы, записанные в начало таблицы из-за того, что в конце не было уже места, 
+        // не будут найдены (в моей реализации, где мы при удалении вместо написания null помечаем вершину фиктивной и
+        // благодаря этому останавливаем поиск при первом null, что дает возможность не обходить всю таблицу, когда элемента там нет) 
+
+        public void Insert(TK key, TV value)
+        {
+            if (_size == _maxSize)
+            {
+                Expand();
+            }
+            var item = new Item<TK, TV>(key, value);
+            var position = FindFreeSpace(key);
+            _items[position] = item;
             _size += 1;
         }
 
