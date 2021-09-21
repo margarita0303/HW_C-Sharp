@@ -41,15 +41,10 @@ namespace HashTable
             }
             return null;
         }
-        
+
 
         public void Insert(TK key, TV value)
         {
-            if (_size == _maxSize)
-            {
-                Array.Resize(ref _items, _maxSize * 2);
-                _maxSize *= 2;
-            }
             var hash = GetHash(key);
             var item = new Item<TK, TV>(key, value);
             while (true)
