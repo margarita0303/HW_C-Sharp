@@ -1,0 +1,16 @@
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\bin\Debug\net5.0\HW C-Sharp.exe
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\bin\Debug\net5.0\HW C-Sharp.deps.json
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\bin\Debug\net5.0\HW C-Sharp.runtimeconfig.json
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\bin\Debug\net5.0\HW C-Sharp.runtimeconfig.dev.json
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\bin\Debug\net5.0\HW C-Sharp.dll
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\bin\Debug\net5.0\ref\HW C-Sharp.dll
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\bin\Debug\net5.0\HW C-Sharp.pdb
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\obj\Debug\net5.0\HW C-Sharp.csprojAssemblyReference.cache
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\obj\Debug\net5.0\HW C-Sharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\obj\Debug\net5.0\HW C-Sharp.AssemblyInfoInputs.cache
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\obj\Debug\net5.0\HW C-Sharp.AssemblyInfo.cs
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\obj\Debug\net5.0\HW C-Sharp.csproj.CoreCompileInputs.cache
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\obj\Debug\net5.0\HW C-Sharp.dll
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\obj\Debug\net5.0\ref\HW C-Sharp.dll
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\obj\Debug\net5.0\HW C-Sharp.pdb
+C:\MKN\Lashina\HW_C-Sharp\HW C-Sharp\obj\Debug\net5.0\HW C-Sharp.genruntimeconfig.cache

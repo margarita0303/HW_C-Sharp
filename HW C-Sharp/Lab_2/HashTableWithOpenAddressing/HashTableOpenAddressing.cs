@@ -47,12 +47,7 @@ namespace HashTable
             var hash = GetHash(key);
             while (true)
             {
-                if (_items[hash] == null)
-                {
-                    break;
-                }
-
-                if (_items[hash].IsFictitious)
+                if (_items[hash] == null || _items[hash].IsFictitious)
                 {
                     break;
                 }
@@ -63,7 +58,8 @@ namespace HashTable
 
         private void Expand()
         {
-            var tmpItems = new Item<TK, TV>[_maxSize];
+            // можно обойтись без инициализации занового нового массива, а создать новый расширенный tmpExtent, заполнить его, а потом _items = tmpExtent
+	    var tmpItems = new Item<TK, TV>[_maxSize];
             for (var i = 0; i < _maxSize; i++)
             {
                 tmpItems[i] = _items[i];
@@ -73,15 +69,11 @@ namespace HashTable
             
             foreach (var item in tmpItems)
             {
-                if (item == null)
+                if (item == null || item.IsFictitious)
                 {
                     continue;
                 }
 
-                if (item.IsFictitious)
-                {
-                    continue;
-                }
                 var key = item.Key;
                 var position = FindFreeSpace(key);
                 _items[position] = item;
