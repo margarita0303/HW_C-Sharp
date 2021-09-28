@@ -13,7 +13,7 @@ namespace Palindrome
             return Convert.ToInt32(newValueAsString);
         }
 
-        private static int? FindNumberOrSteps(int seed, int pal)
+        private static int? FindNumberOfSteps(int seed, int pal)
         {
             int steps = 0;
             int currentValue = seed;
@@ -44,7 +44,7 @@ namespace Palindrome
             for (int i = 1; i < pal; i++)
             {
                 seed = i;
-                steps = FindNumberOrSteps(seed, pal);
+                steps = FindNumberOfSteps(seed, pal);
                 if (steps != null)
                 {
                     break;
