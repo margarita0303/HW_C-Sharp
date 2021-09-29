@@ -35,12 +35,7 @@ namespace Palindrome
             int? steps = 0;
             int seed = 0;
 
-            if (pal == 1)
-            {
-                return new Tuple<int, int>(1, 0);
-            }
-
-            for (int i = 1; i < pal; i++)
+            for (int i = 1; i <= pal; i++)
             {
                 seed = i;
                 steps = FindNumberOfSteps(seed, pal);
