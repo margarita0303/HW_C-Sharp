@@ -9,8 +9,7 @@ namespace Palindrome
         {
             var valueAsArray = value.ToString().ToCharArray();
             Array.Reverse(valueAsArray);
-            string newValueAsString = new string(valueAsArray);
-            return Convert.ToInt32(newValueAsString);
+            return Convert.ToInt32(new string(valueAsArray));
         }
 
         private static int? FindNumberOfSteps(int seed, int pal)
@@ -47,15 +46,10 @@ namespace Palindrome
                 steps = FindNumberOfSteps(seed, pal);
                 if (steps != null)
                 {
-                    break;
+                    return new Tuple<int, int>(seed, (int)steps);
                 }
             }
 
-            if (steps != null)
-            {
-                return new Tuple<int, int>(seed, (int)steps);
-            }
-            
             return new Tuple<int, int>(0, 0);
         }
     }
