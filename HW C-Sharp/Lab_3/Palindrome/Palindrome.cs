@@ -4,7 +4,7 @@ namespace Palindrome
 {
     class Palindrome
     {
-
+        // размещайте в классе сначала открытые методы, а потом закрытые
         private static int Reverse(int value)
         {
             var valueAsArray = value.ToString().ToCharArray();

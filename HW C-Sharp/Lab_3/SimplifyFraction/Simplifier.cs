@@ -4,21 +4,25 @@ namespace Simplifier
 {
     class Fraction
     {
+        // с точки зрения организации класса лучше стараться не использовать открытые поля, а вместо них заводить свойства
         public int numerator;
         public int denominator;
+        // почему бы вообще не отказаться от fractionAsString и просто переопределить метод ToString()? 
         public string fractionAsString;
 
         public Fraction(int num, int den)
         {
             numerator = num;
             denominator = den;
-            fractionAsString = numerator.ToString() + '/' + denominator.ToString();
+            // используйте лучше интерполяцию строк: 		
+            fractionAsString = $"{numerator}/{denominator}";
         }
 
         public Fraction(string fr)
         {
             fractionAsString = fr;
             string[] subs = fr.Split('/');
+            // теоретически subs[0] может оказаться невалидным числом 
             numerator = Convert.ToInt32(subs[0]);
             denominator = Convert.ToInt32(subs[1]);
         }
@@ -34,7 +38,7 @@ namespace Simplifier
             return newFrac.fractionAsString;
         }
 
-        private static int Gcd(int a , int b)
+        private static int Gcd(int a, int b)
         {
             while (a != 0 && b != 0)
             {
