@@ -43,7 +43,7 @@ namespace ConversionOperators
             Colour = colours[rnd.Next(0, colours.Length)];
         }
 
-        // есди мы знаем, как конвертировать породу в тип машины (пони в легковую, например), мы конвертируем 
+        // если мы знаем, как конвертировать породу в тип машины (пони в легковую, например), мы конвертируем 
         // а если нет, то типом машины просто ставится название породы 
         
         public static implicit operator Car(Horse h)
@@ -59,7 +59,7 @@ namespace ConversionOperators
             return new Car(h.Breed, h.Age, h.Weight, h.Height, h.IsShod, h.Speed, h.Colour);
         }
         
-        // есди мы знаем, как конвертировать тип машины в тпороду (легковую в пони, например), мы конвертируем 
+        // если мы знаем, как конвертировать тип машины в тпороду (легковую в пони, например), мы конвертируем 
         // а если нет, то породой лошади становится тип машины 
         
         public static implicit operator Horse(Car c)
