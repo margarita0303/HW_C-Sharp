@@ -60,5 +60,19 @@ namespace ConversionOperators
             
             return true;
         }
+
+        private bool ComparisonOfHorses()
+        {
+            var horse1 = new Horse("Pony", 5, 200, 1.1, true, 90, "brown");
+            var horse2 = new Horse("Boerperd", 6, 200, 1.1, true, 90, "brown");
+            
+            var horse3 = new Horse("Pony", 5, 200, 1.1, true, 90, "brown");
+            var horse4 = new Horse("Boerperd", 5, 250, 1.1, true, 90, "brown");
+            
+            var horse5 = new Horse("Pony", 5, 200, 1.2, true, 90, "brown");
+            var horse6 = new Horse("Boerperd", 5, 250, 1.1, true, 90, "brown");
+
+            return horse1 < horse2 && horse3 <= horse4 && horse6 > horse5;
+        }
     }
 }

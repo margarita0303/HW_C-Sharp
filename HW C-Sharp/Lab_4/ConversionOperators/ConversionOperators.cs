@@ -43,26 +43,6 @@ namespace ConversionOperators
             Colour = colours[rnd.Next(0, colours.Length)];
         }
 
-        public static bool operator <(Horse h1, Horse h2)
-        {
-            if (h1.Age < h2.Age)
-            {
-                return true;
-            }
-
-            if (h1.Weight < h2.Age)
-            {
-                return true;
-            }
-
-            if (h1.Height < h2.Height)
-            {
-                return true;
-            }
-            
-            return false;
-        }
-        
         // есди мы знаем, как конвертировать породу в тип машины (пони в легковую, например), мы конвертируем 
         // а если нет, то типом машины просто ставится название породы 
         
@@ -93,6 +73,26 @@ namespace ConversionOperators
                 return new Horse(typeHorseCar[c.Type], c.Age, c.Weight, c.Height, c.IsStudded, c.Speed, c.Colour);
             }
             return new Horse(c.Type, c.Age, c.Weight, c.Height, c.IsStudded, c.Speed, c.Colour);
+        }
+        
+        public static bool operator <(Horse h1, Horse h2)
+        {
+            if (h1.Age < h2.Age)
+            {
+                return true;
+            }
+
+            if (h1.Weight < h2.Weight)
+            {
+                return true;
+            }
+
+            if (h1.Height < h2.Height)
+            {
+                return true;
+            }
+            
+            return false;
         }
         
         public static bool operator <=(Horse h1, Horse h2)
