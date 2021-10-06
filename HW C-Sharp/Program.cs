@@ -1,5 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using HashTable;
+using Simplifier;
+using Palindrome;
+using ConversionOperators;
+using SortingHamsters;
 
 namespace HW_C_Sharp
 {
@@ -7,89 +13,32 @@ namespace HW_C_Sharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Testing HashTableWithOpenAdressing.");
-            var hashTable = new HashTable.HashTableWithOpenAdressing<int,string>(1);
-            hashTable.Insert(304, "Value1");
-            hashTable.Insert(22, "Value1");
-            hashTable.Insert(28, "Value1");
-            hashTable.Insert(31, "Value1");
-            hashTable.Insert(101, "Value1");
+            var myTests = new TestsConversionOperators();
+            myTests.TestAll();
+            if (myTests.TestAll())
+            {
+                Console.WriteLine("Tests for conversion operators have been passed");
+            }
+            
+            var sorter = new SorterForHamsters();
+            Console.WriteLine("Not sorted hamsters");
+            sorter.Print();
+            sorter.SortHamsters();
+            Console.WriteLine("Sorted hamsters");
+            sorter.Print();
 
-            try
-            {
-                var result = hashTable.Find(304);
-                Console.WriteLine(result);
-            }
-            catch (KeyNotFoundException)
-            {
-                Console.WriteLine("Key can not be found.");
-            }
-            
-            try
-            {
-                var result = hashTable.Find(23);
-                Console.WriteLine(result);
-            }
-            catch (KeyNotFoundException)
-            {
-                Console.WriteLine("Key can not be found.");
-            }
-            
-            hashTable.Insert(20, "Value2");
-            hashTable.Delete(20);
-            
-            try
-            {
-                var result = hashTable.Find(20);
-                Console.WriteLine(result);
-            }
-            catch (KeyNotFoundException)
-            {
-                Console.WriteLine("Key can not be found.");
-            }
-
-            // Console.WriteLine("Testing HashTable.");
-            //
-            // var hashTable = new HashTable.HashTableWithLinkedList<int,string>();
-            // hashTable.Insert(12, "Value1");
-            //
-            // try
-            // {
-            //     var result = hashTable.Find(12);
-            //     Console.WriteLine(result);
-            // }
-            // catch (KeyNotFoundException)
-            // {
-            //     Console.WriteLine("Key can not be found.");
-            // }
-            //
-            // try
-            // {
-            //     var result = hashTable.Find(23);
-            //     Console.WriteLine(result);
-            // }
-            // catch (KeyNotFoundException)
-            // {
-            //     Console.WriteLine("Key can not be found.");
-            // }
-            //
-            // hashTable.Insert(20, "Value2");
-            // hashTable.Delete(20);
-            //
-            // try
-            // {
-            //     var result = hashTable.Find(20);
-            //     Console.WriteLine(result);
-            // }
-            // catch (KeyNotFoundException)
-            // {
-            //     Console.WriteLine("Key can not be found.");
-            // }
-            //
-            // Console.WriteLine("Testing RandomPassword.");
-            //
-            // var password = new RandomPassword.RandomPassword();
-            // Console.WriteLine(password.getPassword());
+            // Hamster h1 = new Hamster(2, 30, 62, "gr", "sef");
+            // Hamster h2 = new Hamster(3, 29, 62, "gr", "sef");
+            // Hamster h3 = new Hamster();
+            // Hamster h4 = new Hamster();
+            // h3.Print();
+            // h4.Print();
+            // Console.WriteLine(h3 < h4);
+            // Console.WriteLine(h1 > h2);
+            // Console.WriteLine(h1 <= h2);
+            // Console.WriteLine(h1 >= h2);
+            // Console.WriteLine(h1 == h2);
+            // Console.WriteLine(h1 != h2);
         }
     }
 }
