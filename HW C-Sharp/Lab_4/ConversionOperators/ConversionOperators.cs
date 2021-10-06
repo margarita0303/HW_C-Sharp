@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace ConversionOperators
 {
+// для классов лучше всегда заводить отдельные файлы: для класса Horse и Car - два файла
     public class Horse
     {
         public string Breed;
@@ -48,6 +49,10 @@ namespace ConversionOperators
         
         public static implicit operator Car(Horse h)
         {
+            // каждый раз при преобразовании вы создаете новый словарь, что само по себе довольно расточительно
+            // гораздо более эффективно в вашем случае будет использовать if-else или switch выражения
+            // если уж очень хочется словарь, то заведите его в единственном месте в виде статической переменной в начале определения кзласса
+            // почему статическая переменная, потому что словарь никак не связан с состоянием вашего объекта
             var typeHorseCar = new Dictionary<string, string>();
             typeHorseCar.Add("Pony", "Passenger");
             typeHorseCar.Add("Belgian horse", "Cargo");
@@ -64,6 +69,7 @@ namespace ConversionOperators
         
         public static implicit operator Horse(Car c)
         {
+            // см комментарий на счет словаря в методе выше
             var typeHorseCar = new Dictionary<string, string>();
             typeHorseCar.Add("Passenger", "Pony");
             typeHorseCar.Add("Cargo", "Belgian horse");

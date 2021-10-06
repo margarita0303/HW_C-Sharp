@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace SortingHamsters
 {
+    // постарайтесь для каждого класса, в котором больше 5-10 строк, создавать отдельный файл
     public class Hamster
     {
         public int Age;
@@ -128,6 +129,7 @@ namespace SortingHamsters
             }
         }
 
+	// старайтесь конструктор класса объявлять перед любыми другими методами в классе
         public SorterForHamsters()
         {
             for (var i = 0; i < Hamsters.Length; i++)
