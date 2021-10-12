@@ -6,6 +6,7 @@ using Simplifier;
 using Palindrome;
 using ConversionOperators;
 using EventBus;
+using PrimeFactors;
 using SortingHamsters;
 using SunLongers;
 
@@ -22,6 +23,10 @@ namespace HW_C_Sharp
             Console.WriteLine("TESTING TASK 2 : SUNLONGERS");
             TestsBeach testsBeach = new TestsBeach();
             testsBeach.TestAll();
+
+            Console.WriteLine("TESTING TASK 3 : PRIME FACTORS");
+            TestsNumber testsNumber = new TestsNumber();
+            testsNumber.TestAll();
         }
     }
 }
