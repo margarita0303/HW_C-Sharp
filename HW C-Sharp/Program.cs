@@ -7,6 +7,7 @@ using Palindrome;
 using ConversionOperators;
 using EventBus;
 using SortingHamsters;
+using SunLongers;
 
 namespace HW_C_Sharp
 {
@@ -14,8 +15,13 @@ namespace HW_C_Sharp
     {
         static void Main(string[] args)
         {
-            TestsEventBus tests = new TestsEventBus();
-            tests.TestAll();
+            Console.WriteLine("TESTING TASK1 : EVENTBUS");
+            TestsEventBus testsEventBus = new TestsEventBus();
+            testsEventBus.TestAll();
+            
+            Console.WriteLine("TESTING TASK 2 : SUNLONGERS");
+            TestsBeach testsBeach = new TestsBeach();
+            testsBeach.TestAll();
         }
     }
 }
