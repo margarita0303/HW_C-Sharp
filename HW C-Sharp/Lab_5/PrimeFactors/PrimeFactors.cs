@@ -7,7 +7,9 @@ namespace PrimeFactors
 {
     class Number
     {
+        // называйте закрытые поля класса с маленькой буквы
         private int Num;
+
         public Number(int num)
         {
             Num = num;

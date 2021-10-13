@@ -4,6 +4,7 @@ using System.Collections.Generic;
 namespace EventBus
 {
     delegate void BankAccountChangedEventHandler(Object sender, EventArgs eventArgs);
+
     class BankAccountPublisher
     {
         public event BankAccountChangedEventHandler BankAccountChanged;

@@ -4,7 +4,9 @@ namespace SunLongers
 {
     class Beach
     {
+        // лучше стараться избегать открытых полей
         public string Places = "";
+
         public Beach(string places)
         {
             if (places.All(place => place == '1' || place == '0'))
