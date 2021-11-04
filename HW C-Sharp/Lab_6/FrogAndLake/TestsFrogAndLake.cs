@@ -8,7 +8,7 @@ namespace FrogAndLake
     {
         public void TestAll()
         {
-            if (Test1() && Test2())
+            if (Test1() && Test2() && Test3())
             {
                 Console.WriteLine("FrogAndLake: tests passed.");
             }
@@ -41,6 +41,18 @@ namespace FrogAndLake
             }
 
             return answer[0] == 13 && answer[1] == 1 && answer[2] == 4 && answer[3] == 9 && answer[4] == -8 && answer[5] == 23;
+        }
+        
+        public bool Test3()
+        {
+            var lake = new Lake(new List<int> {13, 23, 1, -8, 4});
+            var answer = new List<int>();
+            foreach (var stone in lake)
+            {
+                answer.Add(stone);
+            }
+
+            return answer[0] == 13 && answer[1] == 1 && answer[2] == 4 && answer[3] == -8 && answer[4] == 23;
         }
     }
 }
