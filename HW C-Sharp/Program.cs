@@ -1,14 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using HashTable;
-using Simplifier;
-using Palindrome;
-using ConversionOperators;
-using EventBus;
-using PrimeFactors;
-using SortingHamsters;
-using SunLongers;
 
 namespace HW_C_Sharp
 {
@@ -16,17 +7,16 @@ namespace HW_C_Sharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("TESTING TASK1 : EVENTBUS");
-            TestsEventBus testsEventBus = new TestsEventBus();
-            testsEventBus.TestAll();
-            
-            Console.WriteLine("TESTING TASK 2 : SUNLONGERS");
-            TestsBeach testsBeach = new TestsBeach();
-            testsBeach.TestAll();
+            var tests1 = new FrogAndLake.TestsFrogAndLake();
+            tests1.TestAll();
 
-            Console.WriteLine("TESTING TASK 3 : PRIME FACTORS");
-            TestsNumber testsNumber = new TestsNumber();
-            testsNumber.TestAll();
+            var tests2 = new SortingCollections.TestsSortingCollections();
+            tests2.TestAll();
+
+            var tests3 = new MyLinkedList.TestsMyLinkedList();
+            tests3.TestAll();
+            
+            // tests3.Demonstrate();
         }
     }
 }
