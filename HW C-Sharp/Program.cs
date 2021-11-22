@@ -7,16 +7,9 @@ namespace HW_C_Sharp
     {
         static void Main(string[] args)
         {
-            var tests1 = new FrogAndLake.TestsFrogAndLake();
-            tests1.TestAll();
-
-            var tests2 = new SortingCollections.TestsSortingCollections();
-            tests2.TestAll();
-
-            var tests3 = new MyLinkedList.TestsMyLinkedList();
-            tests3.TestAll();
-            
-            // tests3.Demonstrate();
+            // Lab11
+            var tests = new Lab_11.Tests();
+            tests.TestTask1();
         }
     }
 }
