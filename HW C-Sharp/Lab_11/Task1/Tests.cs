@@ -8,8 +8,8 @@ namespace Task1
     {
         public void TestAll()
         {
-            var task1 = new WritingOneMillionNumbers();
-            task1.WriteOneMillionNumbers();
+            var task1 = new WritingOneHundredMillionNumbers();
+            task1.WriteOneHundredMillionNumbers();
         }
     }
 }

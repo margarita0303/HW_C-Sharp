@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Task1
 {
-    public class WritingOneMillionNumbers
+    public class WritingOneHundredMillionNumbers
     {
         // Fisher–Yates shuffle
         private static void Shuffle(List<int> list)
@@ -19,7 +19,7 @@ namespace Task1
             }  
         }
         
-        public void WriteOneMillionNumbers()
+        public void WriteOneHundredMillionNumbers()
         {
             var list = Enumerable.Range(1, 100000000).ToList();
             Shuffle(list);
