@@ -7,9 +7,9 @@ namespace HW_C_Sharp
     {
         static void Main(string[] args)
         {
-            // Lab11
-            var tests = new Lab_11.Tests();
-            tests.TestTask1();
+            // Lab 11
+            var testsTask1 = new Task1.Tests();
+            testsTask1.TestAll();
         }
     }
 }

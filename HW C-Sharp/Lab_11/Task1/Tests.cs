@@ -2,13 +2,13 @@ using System.IO;
 using System.Collections;
 using System;
 
-namespace Lab_11
+namespace Task1
 {
     public class Tests
     {
-        public void TestTask1()
+        public void TestAll()
         {
-            var task1 = new Task1();
+            var task1 = new WritingOneMillionNumbers();
             task1.WriteOneMillionNumbers();
         }
     }
