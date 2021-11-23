@@ -8,12 +8,12 @@ namespace HW_C_Sharp
     {
         static void Main(string[] args)
         {
-            // var testsWritingInFile = new WritingInFile.Tests();
-            // testsWritingInFile.TestAll();
-            //
-            // var testsSerialization = new Serialization.Tests();
-            // testsSerialization.TestSerializing();
-            // testsSerialization.TestDeserializing();
+            var testsWritingInFile = new WritingInFile.Tests();
+            testsWritingInFile.TestAll();
+            
+            var testsSerialization = new Serialization.Tests();
+            testsSerialization.TestSerializing();
+            testsSerialization.TestDeserializing();
 
             var testsSearchongFile = new FileSearch.Tests();
             testsSearchongFile.TestAll();
