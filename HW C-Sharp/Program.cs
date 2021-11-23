@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FileSearch;
 
 namespace HW_C_Sharp
 {
@@ -7,12 +8,15 @@ namespace HW_C_Sharp
     {
         static void Main(string[] args)
         {
-            var testsWritingInFile = new WritingInFile.Tests();
-            testsWritingInFile.TestAll();
+            // var testsWritingInFile = new WritingInFile.Tests();
+            // testsWritingInFile.TestAll();
+            //
+            // var testsSerialization = new Serialization.Tests();
+            // testsSerialization.TestSerializing();
+            // testsSerialization.TestDeserializing();
 
-            var testsSerialization = new Serialization.Tests();
-            testsSerialization.TestSerializing();
-            testsSerialization.TestDeserializing();
+            var testsSearchongFile = new FileSearch.Tests();
+            testsSearchongFile.TestAll();
         }
     }
 }
