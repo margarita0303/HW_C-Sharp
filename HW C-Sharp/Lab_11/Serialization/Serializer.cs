@@ -7,7 +7,14 @@ namespace Serialization
 {
     class BinaryTreeSerializer
     {
-        public BinaryTreeSerializer() { }
+        private readonly int _lenOfMaxValue;
+        private readonly string _format;
+
+        public BinaryTreeSerializer()
+        {
+            _lenOfMaxValue = Int32.MaxValue.ToString().Length; // 10
+            _format = "D" + _lenOfMaxValue.ToString(); // D10
+        }
 
         public void Serialize(FileStream fs, BinaryTree binaryTree)
         {
@@ -43,7 +50,7 @@ namespace Serialization
             var resultString = "";
             foreach (var value in list)
             {
-                resultString += $"{value:0000000000}";
+                resultString += value.ToString(_format);
             }
 
             using (TextWriter writer = new StreamWriter(fs))
@@ -66,10 +73,9 @@ namespace Serialization
         private BinaryTree GetBinaryTreeFromString(string binaryTreeAsString)
         {
             BinaryTree bt = new BinaryTree();
-            for (int i = 0; i < binaryTreeAsString.Length; i += 10)
+            for (int i = 0; i < binaryTreeAsString.Length; i += _lenOfMaxValue)
             {
-                Console.WriteLine(binaryTreeAsString.Substring(i, 10));
-                string node = binaryTreeAsString.Substring(i, 10);
+                string node = binaryTreeAsString.Substring(i, _lenOfMaxValue);
                 int value = Convert.ToInt32(node);
                 bt.Insert(value);
             }
