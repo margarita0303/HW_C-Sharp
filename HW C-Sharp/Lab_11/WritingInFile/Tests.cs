@@ -1,8 +1,4 @@
-using System.IO;
-using System.Collections;
-using System;
-
-namespace Task1
+namespace WritingInFile
 {
     public class Tests
     {
