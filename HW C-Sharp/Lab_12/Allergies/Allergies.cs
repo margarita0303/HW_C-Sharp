@@ -57,7 +57,7 @@ namespace Allergies
         {
             if (_allergies.Count == 0)
             {
-                return $"{_name} has no allergies";
+                return $"{_name} has no allergies.";
             }
             
             StringBuilder sb = new StringBuilder();
