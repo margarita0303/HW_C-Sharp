@@ -47,6 +47,7 @@ namespace Serialization
 
         private void WriteInFile(FileStream fs, List<Int32> list)
         {
+            // тут вы используете string, но лучше будет StringBuilder, т.к. в цикле добавляете к строке множество раз (что приведет к многочисленному созданию временных строк в памяти)
             var resultString = "";
             foreach (var value in list)
             {
