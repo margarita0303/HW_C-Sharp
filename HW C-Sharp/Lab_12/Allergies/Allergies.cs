@@ -30,32 +30,32 @@ namespace Allergies
             get => _score;
         }
         
-        private List<string> _allegries;
+        private List<string> _allergies;
         
         public Allergies(string name)
         {
             _name = name;
-            _allegries = new List<string>();
+            _allergies = new List<string>();
             _score = 0;
         }
         
         public Allergies(string name, int score)
         {
             _name = name;
-            _allegries = ListOfAllergiesByScore(score);
+            _allergies = ListOfAllergiesByScore(score);
             _score = score;
         }
         
         public Allergies(string name, string allergiesInString)
         {
             _name = name;
-            _allegries = ListOfAllergiesByString(allergiesInString);
+            _allergies = ListOfAllergiesByString(allergiesInString);
             _score = CountScore();
         }
 
         public string ToString()
         {
-            if (_allegries.Count == 0)
+            if (_allergies.Count == 0)
             {
                 return $"{_name} has no allergies";
             }
@@ -63,19 +63,19 @@ namespace Allergies
             StringBuilder sb = new StringBuilder();
             sb.Append($"{_name} is allergic to ");
 
-            for (int i = 0; i < _allegries.Count; i++)
+            for (int i = 0; i < _allergies.Count; i++)
             {
-                sb.Append(_allegries[i]);
-                if (i + 2 < _allegries.Count)
+                sb.Append(_allergies[i]);
+                if (i + 2 < _allergies.Count)
                 {
                     sb.Append(", ");
                 }
-                if (i + 2 ==_allegries.Count)
+                if (i + 2 ==_allergies.Count)
                 {
                     sb.Append(" and ");
                 }
 
-                if (i + 1 == _allegries.Count)
+                if (i + 1 == _allergies.Count)
                 {
                     sb.Append(".");
                 }
@@ -86,7 +86,7 @@ namespace Allergies
 
         public bool IsAllergicTo(string allergen)
         {
-            foreach (var allegry in _allegries)
+            foreach (var allegry in _allergies)
             {
                 if (allegry == allergen)
                 {
@@ -105,8 +105,8 @@ namespace Allergies
                 {
                     return;
                 }
-                _allegries.Add(allergen);
-                _allegries = _allegries.OrderBy(x => GetScoreOfAllergen(x)).ToList();
+                _allergies.Add(allergen);
+                _allergies = _allergies.OrderBy(x => GetScoreOfAllergen(x)).ToList();
                 _score += GetScoreOfAllergen(allergen);
             }
             catch (Exception e)
@@ -120,9 +120,9 @@ namespace Allergies
         {
             try
             {
-                var index = _allegries.FindIndex(i => i == allergen); 
+                var index = _allergies.FindIndex(i => i == allergen); 
                 if (index >= 0) {
-                    _allegries.RemoveAt(index);
+                    _allergies.RemoveAt(index);
                     _score -= GetScoreOfAllergen(allergen);
                 }
             }
@@ -138,7 +138,7 @@ namespace Allergies
             try
             {
                 int score = 0;
-                foreach (var allergen in _allegries)
+                foreach (var allergen in _allergies)
                 {
                     score += GetScoreOfAllergen(allergen);
                 }
