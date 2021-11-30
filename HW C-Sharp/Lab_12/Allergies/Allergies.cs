@@ -5,18 +5,6 @@ using System.Text;
 
 namespace Allergies
 {
-    enum Allergen
-    {
-        Eggs = 1, 
-        Peanut = 2,
-        Shellfish = 4, 
-        Strawberries = 8,
-        Tomatoes = 16, 
-        Chocolate = 32, 
-        Pollen = 64, 
-        Cats = 128
-    }
-    
     public class Allergies
     {
         private string _name;
@@ -31,17 +19,20 @@ namespace Allergies
         }
         
         private List<string> _allergies;
+        private EnumAllergen _enumAllergen;
         
         public Allergies(string name)
         {
             _name = name;
             _allergies = new List<string>();
             _score = 0;
+            _enumAllergen = new EnumAllergen();
         }
         
         public Allergies(string name, int score)
         {
             _name = name;
+            _enumAllergen = new EnumAllergen();
             _allergies = ListOfAllergiesByScore(score);
             _score = score;
         }
@@ -49,6 +40,7 @@ namespace Allergies
         public Allergies(string name, string allergiesInString)
         {
             _name = name;
+            _enumAllergen = new EnumAllergen();
             _allergies = ListOfAllergiesByString(allergiesInString);
             _score = CountScore();
         }
@@ -106,8 +98,8 @@ namespace Allergies
                     return;
                 }
                 _allergies.Add(allergen);
-                _allergies = _allergies.OrderBy(x => GetScoreOfAllergen(x)).ToList();
-                _score += GetScoreOfAllergen(allergen);
+                _allergies = _allergies.OrderBy(x => _enumAllergen.GetScoreOfAllergen(x)).ToList();
+                _score += _enumAllergen.GetScoreOfAllergen(allergen);
             }
             catch (Exception e)
             {
@@ -123,7 +115,7 @@ namespace Allergies
                 var index = _allergies.FindIndex(i => i == allergen); 
                 if (index >= 0) {
                     _allergies.RemoveAt(index);
-                    _score -= GetScoreOfAllergen(allergen);
+                    _score -= _enumAllergen.GetScoreOfAllergen(allergen);
                 }
             }
             catch (Exception e)
@@ -140,7 +132,7 @@ namespace Allergies
                 int score = 0;
                 foreach (var allergen in _allergies)
                 {
-                    score += GetScoreOfAllergen(allergen);
+                    score += _enumAllergen.GetScoreOfAllergen(allergen);
                 }
 
                 return score;
@@ -162,7 +154,7 @@ namespace Allergies
                 {
                     allegries.Add(sub);
                 }
-                allegries = allegries.OrderBy(x => GetScoreOfAllergen(x)).ToList();
+                allegries = allegries.OrderBy(x => _enumAllergen.GetScoreOfAllergen(x)).ToList();
                 return allegries;
             }
             catch (Exception e)
@@ -176,54 +168,28 @@ namespace Allergies
         {
             try
             {
-                var allegries = new List<string>();
+                var allergies = new List<string>();
                 int i = 0;
                 while(score > 0)
                 {
                     var digit = score & 1;
                     if (digit == 1)
                     {
-                        string name = GetNameOfAllergen((int) Math.Pow(2, i));
-                        allegries.Add(name);
+                        int scoreOfAllergen = (int) Math.Pow(2, i);
+                        string name = _enumAllergen.GetNameOfAllergen(scoreOfAllergen);
+                        allergies.Add(name);
                     }
                     score = score >> 1;
                     i++;
                 }
 
-                return allegries;
+                return allergies;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 throw;
             }
-        }
-
-        private string GetNameOfAllergen(int allergen)
-        {
-            foreach(Allergen value in Enum.GetValues(typeof(Allergen)))
-            {
-                if ((int)value == allergen)
-                {
-                    return value.ToString();
-                }
-            }
-
-            throw new Exception("Error in GetNameOfAllergen: no allergen with score = " +  allergen);
-        }
-
-        private int GetScoreOfAllergen(string allergen)
-        {
-            foreach(Allergen value in Enum.GetValues(typeof(Allergen)))
-            {
-                string name = Enum.GetName(typeof(Allergen), value);
-                if (name == allergen)
-                {
-                    return (int)value;
-                }
-            }
-
-            throw new Exception("Error in GetScoreOfAllergen(): allergen " +  allergen + " do not exists");
         }
     }
 }
