@@ -39,7 +39,7 @@ namespace Sudoku
             {
                 for (var j = 0; j < 9; j+=3)
                 {
-                    HashSet<int> ss = new HashSet<int>();
+                    HashSet<int> hs = new HashSet<int>();
                     for(var i2 = i; i2 < i + 3; i2++)
                     {
                         for (var j2 = j; j2 < j + 3; j2++)
@@ -48,7 +48,7 @@ namespace Sudoku
                             {
                                 continue;
                             }
-                            if (ss.Contains(_table[i2, j2]))
+                            if (hs.Contains(_table[i2, j2]))
                             {
                                 _isRightInSquares = false;
                             }
@@ -58,52 +58,24 @@ namespace Sudoku
             }
         }
 
-        private void CheckHorisonralOrVertical(bool isHorisontal)
-        {
-            for (var i = 0; i < 9; i++)
-            {
-                HashSet<char> ss = new HashSet<char>();
-                for (var j = 0; j < 9; j++)
-                {
-                    if (_table[i, j] == ',')
-                    {
-                        continue;
-                    }
-                    if (isHorisontal && ss.Contains(_table[i, j]))
-                    {
-                        _isRightHorizontally = false;
-                        break;
-                    }
-                    
-                    if (!isHorisontal && ss.Contains(_table[j, i]))
-                    {
-                        _isRightVertically = false;
-                        break;
-                    }
-                    ss.Add(_table[i,j]);
-                }
-            }
-        }
-
 
         private void CheckHorizontally()
         { 
             for (var i = 0; i < 9; i++)
             {
-                HashSet<char> ss = new HashSet<char>();
+                HashSet<char> hs = new HashSet<char>();
                 for (var j = 0; j < 9; j++)
                 {
                     if (_table[i, j] == '.')
                     {
                         continue;
                     }
-                    if (ss.Contains(_table[i, j]))
+                    if (hs.Contains(_table[i, j]))
                     {
-                        Console.WriteLine("Stop " + _table[i, j]);
                         _isRightHorizontally = false;
                         break;
                     }
-                    ss.Add(_table[i, j]);
+                    hs.Add(_table[i, j]);
                 }
             }
         }
