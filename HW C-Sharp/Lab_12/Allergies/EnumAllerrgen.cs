@@ -31,6 +31,7 @@ namespace Allergies
 
         public int GetScoreOfAllergen(string allergen)
         {
+            //можно сократить вычисления ниже, используя встроенный метод: (Allergen)Enum.Parse(typeof(Allergen), allergen)
             foreach(Allergen value in Enum.GetValues(typeof(Allergen)))
             {
                 string name = Enum.GetName(typeof(Allergen), value);
