@@ -13,11 +13,11 @@ namespace HW_C_Sharp
     {
         static void Main(string[] args)
         {
-            var testsAllergies = new Allergies.TestsAllergies();
-            testsAllergies.TestAll();
+            var testDeadLock = new DeadLock.TestDeadLock();
+            // testDeadLock.TestAll();
 
-            var testsRacingCar = new RacingCar.TestsRacingCar();
-            testsRacingCar.TestAll();
+            var testCheckSudoku = new Sudoku.TestsSheckSudoku();
+            // testCheckSudoku.TestAll();
         }
     }
 }
