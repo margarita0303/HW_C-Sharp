@@ -18,6 +18,8 @@ namespace Sudoku
         
         public bool Check()
         {
+            // у вас три потока запускаются последовательно один за другим
+            // эффективнее будет запускать Join для всех потоков в конце метода Check()
             Thread myThread1 = new Thread(new ThreadStart(CheckHorizontally));
             myThread1.Start();
             myThread1.Join();
@@ -30,6 +32,8 @@ namespace Sudoku
             myThread3.Start();
             myThread3.Join();
             
+            //myThread1.Join(); myThread2.Join(); myThread3.Join();
+
             return _isRightHorizontally && _isRightVertically && _isRightInSquares;
         }
 
