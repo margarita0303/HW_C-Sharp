@@ -68,7 +68,7 @@ namespace Lab_7_MaxMinTask
                     return indexForLastMin;
                 }
                 
-                if (s[i] != min)
+                if (s[i] != min && s[i] != '0')
                 {
                     return i;
                 }
