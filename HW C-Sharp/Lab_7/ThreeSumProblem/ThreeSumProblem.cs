@@ -21,28 +21,20 @@ namespace Lab_7_ThreeSumProblem
                     if (list.Contains(x)) {
                         int [] temp = {x,nums[i],nums[j]};
                         Array.Sort(temp);
-                        triples = new List<int>();
-                        triples.Add(temp[0]);
-                        triples.Add(temp[1]);
-                        triples.Add(temp[2]);
+                        triples = new List<int>() {temp[0], temp[1], temp[2]};
                         found = true;
                     } 
-                    else 
-                    {
-                        list.Add(nums[j]);
-                    }
-
-                    if (!found)
-                    {
-                        continue;
-                    }
+                    else list.Add(nums[j]);
                     
+                    if (!found) continue;
+
                     triples.Sort(delegate(int val1, int val2)
                     {
                         var ind1 = Array.IndexOf(nums, val1);
                         var ind2 = Array.IndexOf(nums, val2);
                         return ind1.CompareTo(ind2);
                     });
+                    
                     if (!ContainsTriple(tripleList, triples))
                     {
                         tripleList.Add(triples);
